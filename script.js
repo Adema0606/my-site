@@ -30,3 +30,24 @@ function renderMovies() {
 }
 
 renderMovies();
+
+const nameInput = document.getElementById('movieName');
+const posterInput = document.getElementById('moviePoster');
+const addBtn = document.getElementById('addMovie');
+
+addBtn.addEventListener('click', () => {
+  const name = nameInput.value.trim();
+  const posterUrl = posterInput.value.trim();
+
+  if (name === '' || posterUrl === '') {
+    return;
+  }
+
+  movieTitles.push(name);
+  moviePosters.push(posterUrl);
+
+  nameInput.value = '';
+  posterInput.value = '';
+
+  renderMovies();
+});
