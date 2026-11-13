@@ -24,7 +24,19 @@ function renderMovies() {
 
     const title = document.createElement('span');
     title.textContent = movieTitle;
-    item.append(poster, title);
+
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Удалить';
+    removeButton.className = 'delete-btn';
+
+    removeButton.addEventListener('click', () => {
+    movieTitles.splice(index, 1);
+    moviePosters.splice(index, 1);
+    renderMovies();
+    });
+
+
+    item.append(poster, title, removeButton);
     movieList.append(item);
   });
 }
